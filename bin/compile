@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+BUILD_DIR=$(cd $1; pwd)
+CACHE_DIR=$2
+ENV_DIR=$3
+
+FROM=`head -1 $1/.sprangular`
+TO=`head -2 $1/.sprangular | tail -1`
+
+rm -rf TO
+cp -pr "$BUILD_DIR/$FROM" "$BUILD_DIR/$TO"

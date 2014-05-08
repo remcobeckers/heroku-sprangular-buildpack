@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# this pack is valid for apps with a .sprangular in the root
+if [ -f $1/.sprangular ]; then
+  echo "Copy static files from one (Angular) build to another (Spray) build."
+  exit 0
+else
+  exit 1
+fi
