@@ -9,5 +9,10 @@ ENV_DIR=$3
 FROM=`head -1 $1/.sprangular`
 TO=`head -2 $1/.sprangular | tail -1`
 
-rm -rf TO
-cp -pr "$BUILD_DIR/$FROM" "$BUILD_DIR/$TO"
+
+
+echo "Creating symbolic link $BUILD_DIR/$TO with target $FROM"
+
+cd "$BUILD_DIR/$TO/.."
+rm -rf "$BUILD_DIR/$TO"
+ln -s "$FROM" "$BUILD_DIR/$TO"
